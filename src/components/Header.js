@@ -22,7 +22,7 @@ const Header = () => {
                 </span>
             </h3>
 
-            <h3 
+            {/* <h3 
                 className={`group px-2 font-bold cursor-pointer hover:text-cyan-500 hover:text-xl transition-all duration-300 ease-in-out ${currentNav === "education" ? 'text-cyan-500 text-xl' : 'text-cyan-950 text-lg'}`}
                 onClick={()=>{dispatch(changeNavState("education"))}}>
                 <span className={`py-2 bg-left-bottom bg-gradient-to-r from-cyan-500 to-cyan-500 bg-no-repeat group-hover:bg-[length:60%_2px] ${currentNav === "education" ? 'bg-[length:60%_2px]' :  'bg-[length:0%_2px]' } transition-all duration-500 ease-out`}>
@@ -35,12 +35,19 @@ const Header = () => {
                 <span className={`py-2 bg-left-bottom bg-gradient-to-r from-cyan-500 to-cyan-500 bg-no-repeat group-hover:bg-[length:60%_2px] ${currentNav === "experience" ? 'bg-[length:60%_2px]' :  'bg-[length:0%_2px]' } transition-all duration-500 ease-out`}>
                     Experience
                 </span>
-            </h3>
+            </h3> */}
             <h3 
                 className={`group px-2 font-bold cursor-pointer hover:text-cyan-500 hover:text-xl transition-all duration-300 ease-in-out ${currentNav === "skills" ? 'text-cyan-500 text-xl' : 'text-cyan-950 text-lg'}`}
                 onClick={()=>{dispatch(changeNavState("skills"))}}>
                 <span className={`py-2 bg-left-bottom bg-gradient-to-r from-cyan-500 to-cyan-500 bg-no-repeat group-hover:bg-[length:60%_2px] ${currentNav === "skills" ? 'bg-[length:60%_2px]' :  'bg-[length:0%_2px]' } transition-all duration-500 ease-out`}>
                     Skills
+                </span>
+            </h3>
+            <h3 
+                className={`group px-2 font-bold cursor-pointer hover:text-cyan-500 hover:text-xl transition-all duration-300 ease-in-out ${currentNav === "resume" ? 'text-cyan-500 text-xl' : 'text-cyan-950 text-lg'}`}
+                onClick={()=>{dispatch(changeNavState("resume"))}}>
+                <span className={`py-2 bg-left-bottom bg-gradient-to-r from-cyan-500 to-cyan-500 bg-no-repeat group-hover:bg-[length:60%_2px] ${currentNav === "resume" ? 'bg-[length:60%_2px]' :  'bg-[length:0%_2px]' } transition-all duration-500 ease-out`}>
+                    Resume
                 </span>
             </h3>
             <h3 
