@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 import { Card } from 'react-bootstrap';
-import ants from '../assets/ants.jpeg';
+import ants from '../assets/ants.jpg';
 import { Link } from 'react-router-dom';
 import { 
   SiGithub,
@@ -9,6 +9,8 @@ import {
   SiTwitter,
   SiMedium,
  } from "react-icons/si";
+import { IoMdMail } from "react-icons/io";
+import { PiLinktreeLogoBold } from "react-icons/pi";
 import Header from './Header';
 
 const Contact = () => {
@@ -53,7 +55,10 @@ const Contact = () => {
           <br/>
           <p className='text-center font-bold text-cyan-900'>You can also find me on the following channels</p>
           <br/>
-          <div className='flex p-2 justify-center'>
+          <div className='flex flex-wrap p-2 justify-center'>
+            <Link to="mailto:antarakundu08@gmail.com" className='mb-4 mx-3 hover:scale-110 border-2 border-cyan-500 p-2 rounded-lg'>
+              <IoMdMail size="2rem" color="#09BFC9"/>
+            </Link>
             <Link to="https://github.com/antarakundu08/" className='mb-4 mx-3 hover:scale-110 border-2 border-cyan-500 p-2 rounded-lg'>
               <SiGithub size="2rem" color="#09BFC9"/>
             </Link>
@@ -66,6 +71,9 @@ const Contact = () => {
             <Link to="https://medium.com/@antarakundu08" className='mb-4 mx-3 hover:scale-110 border-2 border-cyan-500 p-2 rounded-lg'>
               <SiMedium size="2rem" color="#09BFC9"/>
             </Link>
+            <Link to="https://linktr.ee/antarakundu" className='mb-4 mx-3 hover:scale-110 border-2 border-cyan-500 p-2 rounded-lg'>
+              <PiLinktreeLogoBold size="2rem" color="#09BFC9"/>
+            </Link>
           </div>
       </Card>
       
@@ -75,7 +83,7 @@ const Contact = () => {
           <form ref={form}>
             <div className='md:flex p-4 pb-0'>
               <div className='md:w-1/2 p-1'>
-              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
+              <label className="block mb-2 text-sm font-medium text-gray-900">Your Name</label>
               <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                   <svg className="w-4 h-4 text-cyan-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
@@ -85,13 +93,13 @@ const Contact = () => {
                 <input
                  type="text"
                  className="bg-cyan-50 border border-cyan-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                 placeholder="Amitabh Bachhan" 
+                 placeholder="Virat Kohli" 
                  name="from_name"/>
               </div>
               </div>
 
               <div className='md:w-1/2 p-1'>
-                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
+                <label className="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
                 <div className="relative mb-6">
                   <div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
                     <svg className="w-4 h-4 text-cyan-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
@@ -102,16 +110,16 @@ const Contact = () => {
                   <input
                    type="email" 
                    className="bg-cyan-50 border border-cyan-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                   placeholder="name@gmail.com"
+                   placeholder="virat18@gmail.com"
                    name="reply_to"/>
                 </div>
               </div>
             </div>
             <div className='p-4'>
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Message</label>
+            <label className="block mb-2 text-sm font-medium text-gray-900 ">Message</label>
             <textarea type="text" rows="5" name="message"
             className="resize-none rounded-lg bg-cyan-50 border border-cyan-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-            placeholder="E.g. Hey, Antara! I am Zach from XYZ. I would like to connect with you as I have a/an doubt/opportunity that I would like to share with you. Check if you can help me with it/ if you are interested." /> 
+            placeholder="E.g. Hey, Antara! I am Virat from XYZ. I would like to connect with you as I have a/an doubt/opportunity that I would like to share with you. Check if you can help me with it/ if you are interested." /> 
             </div>
             <div className='mb-2 flex justify-center'>
               <button
@@ -123,9 +131,7 @@ const Contact = () => {
             {
               sentEmail && 
               <div className='mb-2 flex justify-center'>
-                {sentEmail === 'Successfully sent message to Antara!'} :
-                <p className='text-green-700 font-semibold'>{sentEmail}</p> ? 
-                <p className='text-red-700 font-semibold'>{sentEmail}</p>
+                <h4 className={`font-semibold ${sentEmail === 'Successfully sent message to Antara!' ? 'text-green-700' : 'text-red-700'}`}>{sentEmail}</h4> 
               </div>
             }
             </form>
