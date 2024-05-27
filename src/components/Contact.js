@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser';
 import { Card } from 'react-bootstrap';
-import ants from '../assets/ants.jpg';
+import ants from '../assets/ants.jpeg';
 import { Link } from 'react-router-dom';
 import { 
   SiGithub,
