@@ -3,12 +3,9 @@ import { useSelector } from 'react-redux'
 import Header from './Header'
 import VideoBackground from './VideoBackground'
 import About from './About'
-import Education from './Education'
-import Experience from './Experience'
 import Skills from './Skills'
 import Project from './Project'
 import Contact from './Contact'
-import Resume from './Resume'
 
 const HomePage = () => {
   const currentNav = useSelector(store => store.nav.showNavSelection);
@@ -18,10 +15,7 @@ const HomePage = () => {
         {
           !currentNav ? ( <VideoBackground /> ):
           currentNav === "about" ? ( <About /> ) : 
-          currentNav === "education" ? (<Education />) :
-          currentNav === "experience" ? ( <Experience /> ) :
           currentNav === "skills" ? ( <Skills /> ) :
-          currentNav === "resume" ? ( <Resume /> ) :
           currentNav === "projects" ? ( <Project /> ) :
           <Contact />
         }
