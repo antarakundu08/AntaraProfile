@@ -1,12 +1,12 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
+import recommenderApp from '../assets/recommenderApp.jpg';
 
 const ProjectCard = ({project}) => {
-    console.log(project)
     const {image, content, title, code, live} = project
   return (
-        <Card className='mx-11 mb-11 w-[25%] h-max-100 border-2 border-cyan-500 p-2 rounded-md group hover:bg-cyan-50 hover:shadow-xl'>
+        <Card className='mx-11 mb-11 md:w-[25%] h-max-100 border-2 border-cyan-500 p-2 rounded-md group hover:bg-cyan-50 hover:shadow-xl'>
         <div className='px-3 pt-3'>
           <img
           className='h-max-34 rounded-lg group-hover:scale-110'
