@@ -12,6 +12,7 @@ import {
 import { IoMdMail } from "react-icons/io";
 import { PiLinktreeLogoBold } from "react-icons/pi";
 import Header from './Header';
+import { formValidation } from '../utils/validation';
 
 const Contact = () => {
 
@@ -21,6 +22,10 @@ const Contact = () => {
   const handleEmailSubmit = (e) => {
     
     e.preventDefault();
+    const message = formValidation(form.current[0].value,form.current[1].value,form.current[2].value)
+    setSentEmail(message)
+
+    if (message) return;
 
     emailjs
       .sendForm('service_cupd0bj', 'template_va2p3uf', form.current, {
@@ -92,8 +97,10 @@ const Contact = () => {
                 </div>
                 <input
                  type="text"
-                 className="bg-cyan-50 border border-cyan-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                 placeholder="Virat Kohli" 
+                 className={`bg-cyan-50 border border-cyan-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 
+                  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                  ${sentEmail === "Please enter your name" ? "border-red-800 border-2":"border-blue-500"}`}
+                  placeholder="Virat Kohli" 
                  name="from_name"/>
               </div>
               </div>
@@ -109,8 +116,10 @@ const Contact = () => {
                   </div>
                   <input
                    type="email" 
-                   className="bg-cyan-50 border border-cyan-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-cyan-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                   placeholder="virat18@gmail.com"
+                   className={`bg-cyan-50 border border-cyan-400 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 
+                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+                    ${sentEmail === "Please enter a valid email address" ? "border-red-800 border-2":"border-blue-500"}`}
+                    placeholder="virat18@gmail.com"
                    name="reply_to"/>
                 </div>
               </div>
@@ -118,8 +127,12 @@ const Contact = () => {
             <div className='p-4'>
             <label className="block mb-2 text-sm font-medium text-gray-900 ">Message</label>
             <textarea type="text" rows="5" name="message"
-            className="resize-none rounded-lg bg-cyan-50 border border-cyan-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-            placeholder="E.g. Hey, Antara! I am Virat from XYZ. I would like to connect with you as I have a/an doubt/opportunity that I would like to share with you. Check if you can help me with it/ if you are interested." /> 
+            className={`resize-none rounded-lg bg-cyan-50 border border-cyan-400 text-gray-900 focus:ring-blue-500 focus:border-blue-500
+              block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
+               dark:focus:ring-blue-500 dark:focus:border-blue-500
+               ${sentEmail === "Please enter some message to send" ? "border-red-800 border-2":"border-blue-500"}
+               `}
+             placeholder="E.g. Hey, Antara! I am Virat from XYZ. I would like to connect with you as I have a/an doubt/opportunity that I would like to share with you. Check if you can help me with it/ if you are interested." /> 
             </div>
             <div className='mb-2 flex justify-center'>
               <button
